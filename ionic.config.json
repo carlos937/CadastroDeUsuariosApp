@@ -1,0 +1,7 @@
+{
+  "name": "CadastroDeUsuariosApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
