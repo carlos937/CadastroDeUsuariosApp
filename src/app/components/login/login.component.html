@@ -1,9 +1,25 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Login</ion-card-title>
-  </ion-card-header>
 
-  <ion-card-content>
-    <ion-button  (click)="login()">Entrar</ion-button>
-  </ion-card-content>
-</ion-card>
+<ion-content  padding>
+  <form [formGroup]="form" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row  justify-content-center style="margin: 20px 0;">
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 style="text-align: center; font-size:xx-large;" >Login</h3>
+          </div>
+          <div padding style="margin: 20px 0;">
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input name="email" type="email" id="email" placeholder="seuemail@email.com" formControlName="email" required color="dark"></ion-input>
+            </ion-item>
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input  name="password" id="senha" type="password" placeholder="Sua senha" formControlName="senha"  required color="dark"></ion-input>
+            </ion-item>
+          </div>
+          <div padding style="margin: 10px 0;">
+            <ion-button expand="block"  size="large" type="submit" [disabled]="form.invalid" >Entrar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
