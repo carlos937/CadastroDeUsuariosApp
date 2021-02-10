@@ -1,4 +1,4 @@
-import { varaveisGlobais } from './../globalVariables';
+import { variaveisGlobais } from '../variaveisGlobais';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators';
@@ -27,7 +27,7 @@ export class UsuarioService {
         senha: "12345"
       }
     
-    var retorno = this.http.post(varaveisGlobais.baseUrl+"Usuario/Adicionar",obj,headers);
+    var retorno = this.http.post(variaveisGlobais.baseUrl+"Usuario/Adicionar",obj,headers);
 
     retorno.subscribe(res => console.log(res));
 
@@ -38,7 +38,7 @@ export class UsuarioService {
        headers: new HttpHeaders()
       .set('Content-Type', 'application/json; charset=utf-8')
     };
-     return this.http.post(varaveisGlobais.baseUrl+"Usuario/Login",obj,headers );
+     return this.http.post(variaveisGlobais.baseUrl+"Usuario/Login",obj,headers );
   }
   
 }
