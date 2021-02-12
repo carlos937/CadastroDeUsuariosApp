@@ -12,12 +12,31 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CriptografiaRSA } from './security/criptografiaRSA';
+import { Suporte } from './suporte';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
-  declarations: [AppComponent,LoginComponent,HomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,ReactiveFormsModule,FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },UsuarioService,CriptografiaRSA],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UsuarioService,
+    CriptografiaRSA,
+    Suporte
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

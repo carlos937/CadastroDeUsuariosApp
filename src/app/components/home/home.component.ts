@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  ngOnInit() { alert("oi");}
+  ngOnInit() { }
 
 }

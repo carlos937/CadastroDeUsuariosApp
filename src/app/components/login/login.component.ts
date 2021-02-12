@@ -3,7 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { CriptografiaRSA } from 'src/app/security/criptografiaRSA';
 import { UsuarioService } from 'src/app/services/usuario-service.service';
-
+import { Suporte } from 'src/app/suporte';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -20,7 +21,12 @@ export class LoginComponent implements OnInit {
     senha: new FormControl('12345'),
   });
   
-  constructor(public nav : NavController, public usuarioService : UsuarioService , public cripto : CriptografiaRSA) {
+  constructor(
+    public nav : NavController,
+    public usuarioService : UsuarioService , 
+    public cripto : CriptografiaRSA,
+    public suporte :Suporte,
+    public storage : Storage) {
      
   }
 
@@ -30,18 +36,24 @@ export class LoginComponent implements OnInit {
 
 
   login(){
-
     let form =Object.assign({},this.form.value);
     form.senha = this.cripto.criptografar(form.senha);
+    this.suporte.abrirLoading();
     this.usuarioService.login(form).subscribe(res => {
+      this.suporte.fecharLoading();
       if(res.status == 0){
-        console.log(res);
+        this.suporte.abrirToast(res.mensagem,'success');
+        delete res.status;
+        delete res.mensagem;
+        this.storage.set('Login',res);
         this.nav.navigateForward("home");
       }
       else{
-        console.log(res.mensagem);
+        this.suporte.abrirToast( res.mensagem,'danger');
       }
-
+    },() => {
+      this.suporte.fecharLoading();
+      this.suporte.abrirToast( "Serviço está fora do ar no momento",'danger');
     })
   }
 
