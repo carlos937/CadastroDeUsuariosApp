@@ -10,12 +10,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'folder',
+        redirectTo: 'inicio',
         pathMatch: 'full'
       },
       {
-        path: 'folder',
-        loadChildren: () => import('./pages/folder/folder.module').then(m => m.FolderPageModule)
+        path: 'inicio',
+        loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule)
       }
     ]
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
@@ -6,18 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+ 
+  public LoginInformacoes:any;
 
-  constructor() { }
+  constructor(
+    public storage:Storage,
+    public nav : NavController) {
+    storage.get("Login").then(res => {
+      this.LoginInformacoes = res;
+    })
+   }
   
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Inicio', url: './inicio', icon: 'mail' },
+    { title: 'Configurações', url: './configuracoes', icon: 'settings' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   ngOnInit() { }
+
+  fazerLogout(){
+    this.storage.clear();
+    this.nav.navigateBack('');
+  }
 
 }
