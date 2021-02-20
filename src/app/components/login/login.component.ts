@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   public keyPriv = "";
 
   public form = new FormGroup({
-    email: new FormControl('jotakj_@outlook.com'),
-    senha: new FormControl('12345'),
+    email: new FormControl(''),
+    senha: new FormControl(''),
   });
   
   constructor(

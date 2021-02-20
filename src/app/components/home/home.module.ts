@@ -7,7 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
+import { EditarUsuarioPage } from './pages/editar-usuario/editar-usuario.page';
 import { InicioPage } from './pages/inicio/inicio.page';
+import { CommonAppModule } from 'src/app/commonapp.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { InicioPage } from './pages/inicio/inicio.page';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    InicioPage
+    EditarUsuarioPage,
+    InicioPage,
+    CommonAppModule
   ],
   declarations: [HomeComponent]
 })
