@@ -1,3 +1,39 @@
-<p>
-  cadastrese works!
-</p>
+<ion-content  padding>
+  <form [formGroup]="form" (ngSubmit)="cadastrar()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button size="large"  routerLink="" fill="outline">
+            <ion-icon name="arrow-undo-outline" ></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row  justify-content-center >
+        <ion-col size-md="3" size-xs="12"></ion-col>
+        <ion-col align-self-center size-md="6" size-xs="12">
+          <div text-center>
+            <h3 style="text-align: center; font-size:xx-large;" >Cadastre-se</h3>
+          </div>
+          <div padding style="margin: 20px 0;">
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input  type="text"  placeholder="Seu nome" formControlName="nome" required color="dark"></ion-input>
+            </ion-item>
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input  type="email"  placeholder="seuemail@email.com" formControlName="email" required color="dark"></ion-input>
+            </ion-item>
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input  type="password" placeholder="Sua senha" formControlName="senha"  required color="dark"></ion-input>
+            </ion-item>
+            <ion-item padding style="margin: 10px 0;">
+              <ion-input  type="password" placeholder="Confirme sua senha" formControlName="confirmacaoSenha"  required color="dark"></ion-input>
+            </ion-item>
+          </div>
+          <div padding style="margin: 10px 0;">
+            <ion-button expand="block"  size="large" type="submit" color="success" [disabled]="form.invalid" >Ok !</ion-button>
+          </div>
+         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   public keyPub = "";
   public keyPriv = "";
 
-  form = new FormGroup({
+  public form = new FormGroup({
     email: new FormControl('jotakj_@outlook.com'),
     senha: new FormControl('12345'),
   });
@@ -35,13 +35,14 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(){
+  async login(){
     let form =Object.assign({},this.form.value);
     form.senha = this.cripto.criptografar(form.senha);
-    this.suporte.abrirLoading();
+    await this.suporte.abrirLoading();
     this.usuarioService.login(form).subscribe(res => {
       this.suporte.fecharLoading();
       if(res.status == 0){
+        this.form.reset();
         this.suporte.abrirToast(res.mensagem,'success');
         delete res.status;
         delete res.mensagem;

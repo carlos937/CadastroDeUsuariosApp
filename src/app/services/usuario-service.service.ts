@@ -13,24 +13,12 @@ export class UsuarioService {
   
 
 
-  adicionarUsuario(){
-    
+  adicionarUsuario(obj):any{
     let headers = { 
       headers: new HttpHeaders()
      .set('Content-Type', 'application/json; charset=utf-8')
-   };
-
-    let obj = 
-      {
-        nome: "junior",
-        email: "josedealcantra",
-        senha: "12345"
-      }
-    
-    var retorno = this.http.post(variaveisGlobais.baseUrl+"Usuario/Adicionar",obj,headers);
-
-    retorno.subscribe(res => console.log(res));
-
+    };
+    return this.http.post(variaveisGlobais.baseUrl+"Usuario/Adicionar",obj,headers );
   }
 
   login(obj):any{

@@ -14,12 +14,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CriptografiaRSA } from './security/criptografiaRSA';
 import { Suporte } from './suporte';
 import { IonicStorageModule } from '@ionic/storage';
+import { CadastreseComponent } from './components/cadastrese/cadastrese.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CadastreseComponent
   ],
   entryComponents: [],
   imports: [

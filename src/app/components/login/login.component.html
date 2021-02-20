@@ -1,6 +1,6 @@
 
 <ion-content  padding>
-  <form [formGroup]="form" (ngSubmit)="login(form)">
+  <form [formGroup]="form" (ngSubmit)="login()">
     <ion-grid>
       <ion-row  justify-content-center style="margin: 20px 0;">
         <ion-col size-md="3" size-xs="12"></ion-col>
@@ -17,7 +17,16 @@
             </ion-item>
           </div>
           <div padding style="margin: 10px 0;">
-            <ion-button expand="block"  size="large" type="submit" [disabled]="form.invalid" >Entrar</ion-button>
+            <ion-button expand="block"  size="large" type="submit" color="success" [disabled]="form.invalid" >Entrar</ion-button>
+          </div>
+          <div text-center>
+            <p style="text-align: center; font-size:xx-large;" >ou</p>
+          </div>
+          <div padding style="margin: 10px 0;">
+            <ion-button 
+            expand="block"  size="large" type="button" 
+            routerDirection="root" routerLink="./cadastrese" lines="none"
+            detail="false" routerLinkActive="selected" >Cadastre-se</ion-button>
           </div>
         </ion-col>
       </ion-row>
