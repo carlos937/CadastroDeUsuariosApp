@@ -12,19 +12,14 @@ import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
     IonicStorageModule.forRoot(),
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
-    BrowserModule, 
     IonicModule, 
     IonicStorageModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,

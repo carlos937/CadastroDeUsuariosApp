@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
    }
   
   public appPages = [
-    { title: 'Inicio', url: './inicio', icon: 'mail' },
-    { title: 'Configurações', url: './editar-usuario', icon: 'settings' }
+    { title: '', url: '', icon: 'mail' },
+    { title: '', url: '', icon: '' }
   ];
   ngOnInit() { }
 

@@ -14,7 +14,34 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">Seu app aqui !!</strong>
-  </div>
+  <ion-content  padding *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="editar()">
+      <ion-grid>
+        <ion-row  justify-content-center >
+          <ion-col size-md="3" size-xs="12"></ion-col>
+          <ion-col align-self-center size-md="6" size-xs="12">
+            <div text-center>
+              <h3 style="text-align: center; font-size:xx-large;" >Editar dados cadastrais</h3>
+            </div>
+            <div padding style="margin: 10px 0;">
+              <ion-button expand="block" class="botaoAlterarSenha" (click)="AlterarSenha()"  size="small" type="button" color="secondary" fill="outline" > Alterar senha</ion-button>
+            </div>
+            <div padding style="margin: 20px 0;">
+              <ion-item padding style="margin: 10px 0;">
+                <ion-input  type="text"  placeholder="Seu nome" formControlName="nome" required color="dark"></ion-input>
+              </ion-item>
+              <ion-item padding style="margin: 10px 0;">
+                <ion-input  type="email"  placeholder="seuemail@email.com" formControlName="email" required color="dark"></ion-input>
+              </ion-item>
+            </div>
+            <div padding style="margin: 10px 0;">
+              <ion-button expand="block"  size="large" type="submit" color="success" [disabled]="form.invalid" >Ok !</ion-button>
+            </div>
+           
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>
+  
 </ion-content>

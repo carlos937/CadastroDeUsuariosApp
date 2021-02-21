@@ -4,18 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CriptografiaRSA } from './security/criptografiaRSA';
 import { Suporte } from './suporte';
-import { IonicStorageModule } from '@ionic/storage';
 import { CadastreseComponent } from './components/cadastrese/cadastrese.component';
 import { CommonAppModule } from './commonapp.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +22,11 @@ import { CommonAppModule } from './commonapp.module';
   ],
   entryComponents: [],
   imports: [
-    CommonAppModule
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    BrowserModule, 
+    CommonAppModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

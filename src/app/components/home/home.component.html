@@ -5,13 +5,22 @@
         <ion-list-header>{{LoginInformacoes?.nome}}</ion-list-header>
         <ion-note>{{LoginInformacoes?.email}}</ion-note>
 
-        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-          <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+        <ion-menu-toggle >
+          <ion-item   routerLink="./inicio" lines="none"
             detail="false" routerLinkActive="selected">
-            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-            <ion-label>{{ p.title }}</ion-label>
+            <ion-icon slot="start" ios="mail-outline" md="mail-sharp"></ion-icon>
+            <ion-label>Inicio</ion-label>
           </ion-item>
         </ion-menu-toggle>
+        
+        <ion-menu-toggle >
+          <ion-item   routerLink="./configuracoes" lines="none"
+            detail="false" routerLinkActive="selected">
+            <ion-icon slot="start" ios="settings-outline" md="settings-sharp"></ion-icon>
+            <ion-label>Configurações</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
         <ion-menu-toggle >
           <ion-item (click)="fazerLogout()">
             <ion-icon slot="start" ios="arrow-undo-circle-outline" md="arrow-undo-circle-sharp"></ion-icon>

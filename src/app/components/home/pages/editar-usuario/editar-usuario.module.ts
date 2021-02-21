@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EditarUsuarioPageRoutingModule } from './editar-usuario-routing.module';
 
 import { EditarUsuarioPage } from './editar-usuario.page';
+import { CommonAppModule } from 'src/app/commonapp.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarUsuarioPageRoutingModule
+    EditarUsuarioPageRoutingModule,
+    CommonAppModule
   ],
   declarations: [EditarUsuarioPage]
 })
